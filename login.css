@@ -1,0 +1,318 @@
+
+/* IMPORTS*/ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); /*Importa a fonte Monteserrat*/
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: rgba(222, 220, 220, 0.874);
+}
+
+/* Header - Navbar*/
+.bg-body-color{ /*Class do Navbar*/
+    background-color: #0f222d !important;
+    position: relative;
+    top: 0;
+    width: 100%; 
+}
+
+.navbar-brand {
+    color: #f29736; /*Laranja f55139 */
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.nav-item {
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+}
+
+
+.box-login {
+    background: white;
+    width: 500px;
+    max-width: 100%;
+    padding: 2em;
+    border-radius: 2%; 
+    border: 1px solid #aaaaaa;
+    margin: 0 auto;
+}
+
+.title_login  { 
+    width: 100%;
+    font-family:"Monteserrat", sans-serif;
+    font-size: 2.3em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #424850;
+    border-bottom: 1px #363b41 solid;
+    margin-bottom: 3%;
+    padding-bottom: 0.35em;
+}
+
+.hidden {
+
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+}
+
+input {
+  background-image: none;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  -webkit-transition: background-color 0.3s;
+  -o-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"], button[type="reset"] {
+  cursor: pointer;
+}
+
+
+.form input[type="password"],
+.form input[type="text"]{
+  width: 100%;
+}
+
+.form button[type="submit"],
+.form button[type="reset"] {
+  width: 100%;
+}
+
+
+
+.form_field {
+
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+}
+
+.form_input {
+
+  -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+}
+
+.login { 
+  font-family: "Montserrat", sans-serif;
+    color: white;
+ }
+
+.login label,
+.login input[type="text"],
+.login input[type="password"]{
+  border-radius:0.5em;
+  padding: 1em;
+}
+
+.login button[type="submit"],
+.login button[type="reset"] {
+  border-radius:0.5em;
+  padding: 0.7em 1em;
+  width: 48%;
+}
+
+.login label {
+
+  background-color: #0f222d;
+  color: #9c9ea2;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  padding-left: 1.25rem;
+}
+
+.login input[type="password"], .login input[type="text"] {
+  background-color: #0f222d;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.login input[type="password"]:focus,
+.login input[type="password"]:hover,
+.login input[type="text"]:focus,
+.login input[type="text"]:hover 
+{
+  background-color: #171b20;
+}
+
+.login button[type="submit"], .login button[type="reset"] {
+
+  background-color: #f29736;
+  color: #eee;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+.login button[type="submit"]:focus,
+.login button[type="submit"]:hover,
+.login button[type="reset"]:focus,
+.login button[type="reset"]:hover {
+  
+  background-color: #e38929;
+
+}
+
+.resgatar-senha p {
+ 
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+
+
+}
+
+.resgatar-senha, a[href="esqueceusenha.html"] {
+  text-decoration: none;  
+  color: #8e8e8e;
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+.resgatar-senha a[href="cadastro.html"]{
+    float: right;
+    text-decoration: none;;
+    color: #8e8e8e;
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
+.resgatar-senha a:hover{
+  text-decoration:underline;
+  color: #f29736;
+
+}
+
+/* Menu de Usuário*/
+.dropdown-menu {
+  min-width: auto; /* Define a largura mínima */
+}
+
+#alterarSenha, #logoutBtn{
+  font-family: "Montserrat", sans-serif !important;
+  color: #DEE2E6 !important;
+  font-size: 16px !important;
+  text-align: left !important;
+  margin: auto;
+}
+
+/* imagem de usuário */
+.img-user-circle {
+  width: 30px; /* Tamanho da imagem */
+  height: 30px; /* Tamanho da imagem */
+  border-radius: 40%; /* Torna a imagem redonda */
+  object-fit: cover; 
+  border: 2px solid #fff; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra */
+}
+/* Footer */
+/* footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer h5, p {
+    text-align: left;
+}
+
+.bg-dark { Class do Footer
+    background-color: #0f222d !important;
+} */
+
+/*Modal Alteração de Senha*/
+
+/* Tamanho do modal */
+#alterarSenhaModal .modal-dialog {
+  max-width: 400px; /* Define uma largura máxima */
+  margin: auto; /* Centraliza o modal */
+}
+
+#alterarSenhaModal .modal-content {
+  background-color: #f8f9fa; /* Cor de fundo clara */
+  border-radius: 10px; /* Borda arredondada */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+#alterarSenhaModal .modal-header {
+  background-color: #0f222d; /* Cor de fundo escura */
+  color: #fff; /* Texto branco */
+  border-bottom: none; /* Remove borda inferior */
+  border-radius: 10px 10px 0 0; /* Canto superior arredondado */
+}
+
+#alterarSenhaModal .modal-title {
+  font-size: 1.5rem; /* Tamanho da fonte maior */
+}
+
+#alterarSenhaModal .btn-close {
+  filter: brightness(0) invert(1); /* Torna o botão de fechar visível em fundos escuros */
+}
+
+#alterarSenhaModal .modal-body {
+  padding: 1.5rem; /* Aumenta o espaço interno */
+}
+
+#alterarSenhaModal .form-label {
+  font-weight: bold; /* Texto em negrito */
+  color: #495057; /* Cinza escuro */
+}
+
+#alterarSenhaModal .form-control {
+  border: 1px solid #ced4da; /* Borda cinza */
+  border-radius: 5px; /* Borda arredondada */
+}
+
+#alterarSenhaModal .modal-footer {
+  background-color: #f1f1f1; /* Fundo claro */
+  border-top: none; /* Remove borda superior */
+  border-radius: 0 0 10px 10px; /* Canto inferior arredondado */
+}
+
+/* Botões do modal */
+#alterarSenhaModal .btn-primary {
+  background-color: #e38929;
+  border: none;
+}
+
+#alterarSenhaModal .btn-primary:hover {
+  background-color: #f29736; 
+}
+
+#alterarSenhaModal .btn-secondary {
+  background-color: #6c757d;
+  border: none;
+}
+
+#alterarSenhaModal .btn-secondary:hover {
+  background-color: #858585; 
+}
+
+
+/* Adiciona transição suave */
+#alterarSenhaModal .form-control,
+#alterarSenhaModal .btn {
+  transition: all 0.3s ease;
+}
+
+/* Efeito de foco nos campos */
+#alterarSenhaModal .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

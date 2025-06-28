@@ -1,0 +1,764 @@
+/* IMPORTS*/ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); /*Importa a fonte Monteserrat*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #0f222d;
+    color: white;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+/* Navbar */
+.bg-body-color{ /*Class do Navbar*/
+    background-color: #0f222d !important;
+    position: relative;
+    top: 0;
+    width: 100%; 
+}
+
+.navbar-brand {
+    color: #f29736; /*Laranja f55139 */
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.nav-item {
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+}
+
+/* Carrossel  */ 
+/* Define o tamanho do carrossel */
+#carouselExample {
+    width: 100%; /* O carrossel ocupará 100% da largura disponível */
+}
+
+/* Ajuste das imagens */
+.carousel-inner img {
+    width: 100%;
+    object-fit: cover; /* As imagens se ajustarão ao espaço sem deformar */
+    object-position: center; /* Centraliza o conteúdo da imagem */
+    filter: brightness(60%);
+}
+
+.carousel-item #crossfit {
+    width: 100%;
+    object-fit: cover; /* As imagens se ajustarão ao espaço sem deformar */
+    object-position: center 40%; /* Centraliza o conteúdo da imagem */
+}
+
+.carousel-item img {
+    height: 550px; /* Defina a altura desejada */
+    object-fit: cover; /* Mantém a proporção da imagem e cobre o espaço */
+    width: 100%; 
+}
+
+#carousel .custom-caption {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    text-align: left;
+    color: #fff;
+    max-width: 40%;
+}
+
+#carousel .custom-caption h2 {
+    font-family: "Montserrat", Sans-serif;
+    font-size: 65px;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+#carousel .custom-caption span {
+    font-family: "Montserrat", Sans-serif;
+    font-size: 65px;
+    font-weight: 800;
+    font-style: italic;
+    color: #ef902a;
+    position: relative;
+    top: -20px
+}
+
+#carousel .custom-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#slide2 {
+    font-size: 1.2rem !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    top: -20px !important;
+}
+#slide3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 20px !important;
+    position: relative !important;
+    top: 0px !important;
+}
+
+#titulo-slide{
+    font-family: "Montserrat", Sans-serif;
+    font-size: 67px;
+    font-weight: 800;
+    font-style: italic;
+    color: #ef902a;
+    position: relative !important;
+    top: 0px !important;
+}
+
+#carousel .custom-caption a{
+    background-color: #e38929;
+    border: none;
+    font-weight: 500;
+    font-size: 17px;
+    width: 30%;
+    padding: 10px 0;
+    display: inline-block;
+    color: #fff;
+    transition: background-color 0.3s;
+    position: relative;
+    top: 25px;
+}
+
+#carousel .custom-caption a:hover {
+    background-color: #f29736;
+}
+
+#carousel .carousel-inner {
+    position: relative;
+}
+
+/*Sombras nos textos*/
+.carousel-caption h2, 
+.carousel-caption p,
+.carousel-caption span {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra leve */
+    color: #fff; /* Garante que o texto seja branco */
+}
+
+/* Responsividade (Bootstrap adicionado) */
+
+/* Títulos e parágrafos */
+@media (max-width: 576px) {
+    #carousel .custom-caption h2 {
+        font-size: 36px;
+    }
+
+    #carousel .custom-caption span {
+        font-size: 36px;
+    }
+
+    #carousel .custom-caption p {
+        font-size: 1rem;
+    }
+
+    #carousel .custom-caption a {
+        font-size: 16px;
+        width: auto;
+        padding: 8px 15px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    #carousel .custom-caption h2 {
+        font-size: 48px;
+    }
+
+    #carousel .custom-caption span {
+        font-size: 48px;
+    }
+
+    #carousel .custom-caption p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    #carousel .custom-caption h2 {
+        font-size: 65px;
+    }
+
+    #carousel .custom-caption span {
+        font-size: 65px;
+    }
+
+    #carousel .custom-caption p {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
+/*Seção de serviços*/
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: #001f3f;
+}
+
+.card p {
+    color: #666;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+footer h5, p {
+    text-align: left;
+    top: 0;
+    text-decoration: none;
+}
+
+.text-warning{
+    color: #e38929 !important;
+}
+
+.bg-dark { /* Class do Footer */
+    background-color: #0f222d !important;
+}
+
+.dropdown-menu {
+    min-width: auto; /* Define a largura mínima */
+    
+}
+
+#alterarSenha, #logoutBtn{
+    font-family: "Montserrat", sans-serif !important;
+    color: #DEE2E6 !important;
+    font-size: 16px !important;
+    text-align: left !important;
+    margin: auto;
+}
+
+/* imagem de usuário */
+.img-user-circle {
+    width: 30px; /* Tamanho da imagem */
+    height: 30px; /* Tamanho da imagem */
+    border-radius: 40%; /* Torna a imagem redonda */
+    object-fit: cover; 
+    border: 2px solid #fff; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra */
+}
+
+
+/*Seção de Serviços*/
+#titulo-atividades {
+    text-align: center; /* Centraliza o conteúdo */
+    margin: 60px 0; /* Espaçamento superior e inferior */
+    margin-bottom: 40px;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+#titulo-atividades h6 {
+    font-size: 13px; 
+    color: #333; 
+    letter-spacing: 2px; /* Espaçamento entre as letras */
+    text-transform: uppercase; 
+}
+
+#titulo-atividades h2 {
+    font-size: 40px; 
+    font-weight: 800; 
+    color: #0f222d; 
+    margin-top: 10px; 
+    line-height: 1.2; 
+    font-style: italic;
+}
+
+#titulo-atividades span {
+    font-size: 40px; 
+    color: #f39c12; 
+    font-weight: 800;
+    display: inline; /* Garante que fique na mesma linha */
+}
+
+/* Responsividade da atividades*/
+@media (max-width: 768px) {
+    #titulo-atividades h2 {
+        font-size: 28px; 
+    }
+
+    #titulo-atividades span {
+        font-size: 28px; 
+    }
+}
+
+
+/*Seção Sobre nós*/
+#sobre-nos {
+    background-color: #f4f4f4 !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+#sobre-nos img {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    filter: brightness(80%);
+    width: 90%; 
+    height: auto; 
+    position: relative; /* Posicionamento relativo dentro do contêiner */
+    left: 40px;
+}
+
+#sobre-nos .row {
+    align-items: flex-start; /* Alinha os elementos no topo */
+  }
+  
+  #sobre-nos .col-md-6 > div {
+    margin-top: 15px; /* Ajuste o valor para alinhar com a imagem */
+  }
+  
+#sobre-nos h2 {
+    font-size: 40px; 
+    font-weight: 800;
+    color: #0f222d; 
+    margin-bottom: 15px !important;
+    line-height: 1.2; /* Melhora a legibilidade */
+    font-style: italic;
+    text-transform: uppercase;
+}
+  
+#sobre-nos p {
+    color: #333;
+    line-height: 1.6;
+
+}
+  
+#sobre-nos a{
+    background-color: #e38929;
+    border: none;
+    font-weight: 500;
+    font-size: 17px;
+    width: 25%;
+    padding: 8px 0;
+}
+  
+#sobre-nos a:hover {
+    background-color: #f29736; 
+}
+
+/*Seção Gympass*/
+.gympass-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha no topo por padrão */
+    padding: 10px 20px;
+    background-color: #ffb05d;
+    height: 100%; /* Garante que o container ocupe toda a altura disponível */
+}
+
+.gympass-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.gympass-info h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #0f222d;
+    margin-bottom: 20px;
+    position: relative;
+    top: 50px;
+    left: 20px;
+}
+
+.gympass-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.gympass-content ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #555;
+    position: relative;
+    top: 50px;
+    left: 20px;
+}
+
+.gympass-content span {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #e38929;
+}
+
+.gympass-download {
+    margin-top: 30px;
+    position: relative;
+    top: 50px;
+}
+
+.gympass-download span {
+    font-size: 18px;
+    color: #333;
+    font-weight: 800;
+    position: relative;
+    top: 30px;
+    left: 20px;
+}
+
+.gympass-download-links {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.gympass-badges {
+    display: flex;
+    list-style-type: none;
+    position: relative;
+    top: 20px;
+    left: -20px;
+}
+
+.gympass-badges img {
+    width: 140px;  
+    height: auto;
+}
+
+
+.gympass-badges li {
+    margin-right: 10px;
+}
+
+.gympass-badges li #applestore{
+    position: relative;
+    top: 6px;
+    width: 135px;
+}
+
+.gympass-image {
+    flex: 1;
+    padding: 20px;
+    margin-top: auto; /* Alinha a imagem para o final */
+}
+
+.gympass-image img {
+    max-width: 130%;
+    height: auto;
+    position: relative;
+    right: 40px
+}
+
+
+
+/*  Reponsividade Gympass */
+@media (max-width: 768px) {
+    .gympass-container {
+        flex-direction: column;
+        text-align: center;
+        height: auto; 
+    }
+
+    .gympass-info {
+        margin-bottom: 30px;
+    }
+
+    .gympass-image {
+        display: block; /* Mostra a imagem no mobile */
+        margin-top: 20px;
+        position: relative;
+        left: 25px;
+        
+    }
+
+    .gympass-download,
+    .gympass-download-links {
+        justify-content: center;
+    }
+
+    .gympass-download-links {
+        position: relative;
+        left: 25px;
+    }
+
+    .gympass-content{
+        text-align: left;
+    }
+}
+
+
+  
+/*Seção Matricula*/
+#homeCadastroClienteSection {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+  }
+  
+  .padding-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .cta-matricula-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    height: 100%; /* Garante que a seção ocupe toda a altura */
+  }
+  
+  .cta-matricula-image-wrapper {
+    flex: 1; /* A imagem ocupa metade da seção */
+    height: 100%;
+    filter: brightness(80%);
+  }
+  
+  .cta-matricula-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorção */
+    border-radius: 10px;
+  }
+  
+  .cta-matricula-content-wrapper {
+    flex: 1; /* A parte direita ocupa o outro espaço */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinha o conteúdo verticalmente */
+    align-items: flex-start;
+  }
+  .section-title, .cta-matricula-benefits{
+    position: relative;
+    left: 20px;
+  }
+
+ 
+  .section-title h5 {
+    font-size: 36px; 
+    font-weight: 800; 
+    color: #0f222d; 
+    margin-top: 10px; 
+    line-height: 1.2; 
+    font-style: italic;
+    position: relative;
+    top: -35px;
+    text-transform: uppercase;
+  }
+
+  .section-title span{
+    color: #f39c12;
+  }
+ 
+  
+  .cta-matricula-benefits p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+    top: -25px;
+  }
+  
+  .cta-matricula-benefits ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .cta-matricula-benefits ul li {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 8px;
+  }
+  
+#botaomatricula {
+    background-color: #e38929;
+    border: none;
+    font-weight: 500;
+    font-size: 17px;
+    width: 32%;
+    padding: 9px 0;
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+ 
+  
+#botaomatricula:hover {
+    background-color: #f29736;
+}
+  
+  /* Responsividade Seção de Matricula */
+  @media (max-width: 768px) {
+    .cta-matricula-wrapper {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .cta-matricula-image-wrapper {
+      width: 100%;
+      height: 300px;
+      margin-bottom: 20px;
+    }
+  
+    .cta-matricula-content-wrapper {
+      width: 100%;
+    }
+  
+    .section-title h3 {
+      font-size: 28px;
+    }
+
+    .cta-matricula-benefits ul li{
+        text-align: left;
+    }
+
+    #botaomatricula{
+        margin: 20px auto 0; /* Centraliza o botão horizontalmente */
+        display: block;  
+    }
+
+  }
+  
+
+/*Modal Alteração de Senha*/
+#alterarSenhaModal .modal-dialog {
+    max-width: 400px; /* Define uma largura máxima */
+    margin: auto; /* Centraliza o modal */
+}
+#alterarSenhaModal .modal-content {
+    background-color: #f8f9fa; /* Cor de fundo clara */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  }
+  
+  #alterarSenhaModal .modal-header {
+    background-color: #0f222d; /* Cor de fundo escura */
+    color: #fff; /* Texto branco */
+    border-bottom: none; /* Remove borda inferior */
+    border-radius: 10px 10px 0 0; /* Canto superior arredondado */
+  }
+  
+  #alterarSenhaModal .modal-title {
+    font-size: 1.5rem; /* Tamanho da fonte maior */
+  }
+  
+  #alterarSenhaModal .btn-close {
+    filter: brightness(0) invert(1); /* Torna o botão de fechar visível em fundos escuros */
+  }
+  
+  #alterarSenhaModal .modal-body {
+    padding: 1.5rem; /* Aumenta o espaço interno */
+  }
+  
+  #alterarSenhaModal .form-label {
+    font-weight: bold; /* Texto em negrito */
+    color: #495057; /* Cinza escuro */
+  }
+  
+  #alterarSenhaModal .form-control {
+    border: 1px solid #ced4da; /* Borda cinza */
+    border-radius: 5px; /* Borda arredondada */
+  }
+  
+  #alterarSenhaModal .modal-footer {
+    background-color: #f1f1f1; /* Fundo claro */
+    border-top: none; /* Remove borda superior */
+    border-radius: 0 0 10px 10px; /* Canto inferior arredondado */
+  }
+  
+  /* Botões do modal */
+#alterarSenhaModal .btn-primary {
+    background-color: #e38929;
+    border: none;
+  }
+  
+  #alterarSenhaModal .btn-primary:hover {
+    background-color: #f29736; 
+  }
+  
+  #alterarSenhaModal .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+  
+  #alterarSenhaModal .btn-secondary:hover {
+    background-color: #858585; 
+  }
+  
+  /* Adiciona transição suave */
+  #alterarSenhaModal .form-control,
+  #alterarSenhaModal .btn {
+    transition: all 0.3s ease;
+  }
+  
+  /* Efeito de foco nos campos */
+  #alterarSenhaModal .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  

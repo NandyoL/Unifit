@@ -1,0 +1,199 @@
+
+
+/* IMPORTS*/ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); /*Importa a fonte Monteserrat*/
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: #f6f7f8;
+}
+
+/* Navbar */
+.bg-body-color{ /*Class do Navbar*/
+    background-color: #0f222d !important;
+    position: relative;
+    top: 0;
+    width: 100%; 
+}
+
+.navbar-brand {
+    color: #f29736; /*Laranja f55139 */
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.nav-item {
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+}
+
+#cadastroUnifit {
+    max-width: 500px; 
+    margin: 0px auto;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    padding: 20px; 
+    border: 1px solid #a4a4a4;
+    border-radius: 10px;
+    background-color: #e7e7e7; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Adiciona sombra */
+    align-items: center;
+}
+
+h1 {
+    color: white; /* Teste com formulario azul escuro */
+    color: black;
+}
+
+h1 i {
+    position: relative;/* Ajuste a posição vertical */
+    left: 150px;
+    font-size: 35px; /* Tamanho do ícone */
+    /*transform: rotate(45deg);  Rotaciona o ícone em 45 graus */
+}
+
+i:hover {
+   color: #f29736;
+}
+label {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: white; /* Teste com formulario azul escuro */
+    color: black;
+}
+#cadastroUnifit button, input, select {
+    margin-bottom: 10px; /* Altere o valor para aumentar ou diminuir o espaçamento */
+}
+
+/* Estilizando o placeholder dos inputs */
+input::placeholder, input[type="date"], select {
+    font-size: 13px !important; /* Tamanho da fonte */
+}
+
+#cadastroUnifit button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    background-color: #0f222d;
+    color: white;
+    padding: 0.4rem 1rem;
+    margin: 12px;
+    width: 200px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.4s    
+
+}
+
+#cadastroUnifit button:hover {
+    background-color: #f29736 ;
+}
+
+/* Menu de Usuário*/
+.dropdown-menu {
+    min-width: auto; /* Define a largura mínima */
+}
+
+#alterarSenha, #logoutBtn{
+    font-family: "Montserrat", sans-serif !important;
+    color: #DEE2E6 !important;
+    font-size: 16px !important;
+    text-align: left !important;
+    margin: auto;
+}
+
+/* imagem de usuário */
+.img-user-circle {
+    width: 30px; /* Tamanho da imagem */
+    height: 30px; /* Tamanho da imagem */
+    border-radius: 40%; /* Torna a imagem redonda */
+    object-fit: cover; 
+    border: 2px solid #fff; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra */
+}
+
+/* Tamanho do modal */
+/* Tamanho do modal */
+#alterarSenhaModal .modal-dialog {
+    max-width: 400px; /* Define uma largura máxima */
+    margin: auto; /* Centraliza o modal */
+  }
+  
+  #alterarSenhaModal .modal-content {
+    background-color: #f8f9fa; /* Cor de fundo clara */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  }
+  
+  #alterarSenhaModal .modal-header {
+    background-color: #0f222d; /* Cor de fundo escura */
+    color: #fff; /* Texto branco */
+    border-bottom: none; /* Remove borda inferior */
+    border-radius: 10px 10px 0 0; /* Canto superior arredondado */
+  }
+  
+  #alterarSenhaModal .modal-title {
+    font-size: 1.5rem; /* Tamanho da fonte maior */
+  }
+  
+  #alterarSenhaModal .btn-close {
+    filter: brightness(0) invert(1); /* Torna o botão de fechar visível em fundos escuros */
+  }
+  
+  #alterarSenhaModal .modal-body {
+    padding: 1.5rem; /* Aumenta o espaço interno */
+  }
+  
+  #alterarSenhaModal .form-label {
+    font-weight: bold; /* Texto em negrito */
+    color: #495057; /* Cinza escuro */
+  }
+  
+  #alterarSenhaModal .form-control {
+    border: 1px solid #ced4da; /* Borda cinza */
+    border-radius: 5px; /* Borda arredondada */
+  }
+  
+  #alterarSenhaModal .modal-footer {
+    background-color: #f1f1f1; /* Fundo claro */
+    border-top: none; /* Remove borda superior */
+    border-radius: 0 0 10px 10px; /* Canto inferior arredondado */
+  }
+  
+  /* Botões do modal */
+  #alterarSenhaModal .btn-primary {
+    background-color: #e38929;
+    border: none;
+  }
+  
+  #alterarSenhaModal .btn-primary:hover {
+    background-color: #f29736; 
+  }
+  
+  #alterarSenhaModal .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+  
+  #alterarSenhaModal .btn-secondary:hover {
+    background-color: #858585; 
+  }
+  
+  
+  /* Adiciona transição suave */
+  #alterarSenhaModal .form-control,
+  #alterarSenhaModal .btn {
+    transition: all 0.3s ease;
+  }
+  
+  /* Efeito de foco nos campos */
+  #alterarSenhaModal .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  
