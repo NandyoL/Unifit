@@ -1,63 +1,62 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* IMPORTS*/ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); /*Importa a fonte Monteserrat*/
 
 body {
-    font-family: 'Arial', sans-serif; /* Tipografia limpa */
-    background-color: #f4f4f4; /* Fundo claro */
-    color: #333; /* Texto escuro */
-    line-height: 1.6;
-    padding: 20px;
+    font-family: "Montserrat", sans-serif;
+    background-color: #f6f7f8;
 }
 
 header {
-    background-color: #003b5c; /* Azul escuro */
-    color: #ffffff; /* Branco */
+    background-color: #0f222d;
+    color: white;
     text-align: center;
-    padding: 50px 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+/* Navbar */
+.bg-body-color{ /*Class do Navbar*/
+    background-color: #0f222d !important;
+    position: relative;
+    top: 0;
+    width: 100%; 
 }
 
-header p {
-    font-size: 1.2em;
+.navbar-brand {
+    color: #f29736; /*Laranja f55139 */
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.nav-item {
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
 }
 
 h2 {
     color: #003b5c; /* Azul escuro */
     margin-top: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
+    padding-left: 50px;
     font-size: 2em;
     font-weight: 600;
-    border-bottom: 2px solid #e0e0e0; /* Linha sutil */
+    border-bottom: 5px solid #e0e0e0; /* Linha sutil */
     padding-bottom: 10px;
 }
 
 p {
-    margin-bottom: 15px;
-    font-size: 1.1em;
+    margin-bottom: 20px;
+    padding-left: 50px;
+    font-size: 1.3em;
 }
 
 ul {
     list-style-type: none; /* Remove bullets */
-    padding-left: 0;
-}
-
-ul li {
-    background-color: #ffffff;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    font-size: 1em;
+    padding-left: 50px;
 }
 
 footer {

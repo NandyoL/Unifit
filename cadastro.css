@@ -1,11 +1,12 @@
-
-
 /* IMPORTS*/ 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); /*Importa a fonte Monteserrat*/
 
 body {
     font-family: "Montserrat", sans-serif;
     background-color: #f6f7f8;
+}
+body.adicionar-usuario {
+    background-color: #ffb668; /* Cor de fundo clara */
 }
 
 /* Navbar */

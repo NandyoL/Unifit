@@ -11,7 +11,7 @@
             "driver": "MySQL",
             "name": "unifit",
             "username": "root",
-            "database": "cadastro_unifit"
+            "database": "usuarios"
         }
     ]
 }

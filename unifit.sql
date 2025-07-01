@@ -19,10 +19,21 @@ CREATE TABLE usuarios (
     bairro VARCHAR(100),
     cidade VARCHAR(100),
     login VARCHAR(50),
-    senha VARCHAR(255)
+    senha VARCHAR(255),
+    perfil enum ('ADMIN','COMUM')
 );
 
-INSERT INTO usuarios (nome, nomeMaterno, cpf, email, dataNasc, telefone, celular, cep, bairro, cidade, login, senha)
-VALUES ('João Silva', 'Maria Silva', '12345678901', 'joao@example.com', '1990-05-15', '1122334455', '11987654321', '12345678', 'Centro', 'São Paulo', 'joao23', 'hashi123');
+INSERT INTO usuarios (nome, nomeMaterno, cpf, email, dataNasc, telefone, celular, cep, bairro, cidade, login, senha, perfil)
+VALUES ('Administrador', '', '', '', '', '', '', '', '', '', 'admin', 'hashi123', 'ADMIN');
 
 select * from usuarios;
+
+CREATE TABLE log_atividades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuario INT,
+    nome_usuario VARCHAR(100),
+    tipo_acao VARCHAR(50),
+    descricao TEXT,
+    ip VARCHAR(45),
+    data_hora DATETIME
+);

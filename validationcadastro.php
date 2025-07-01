@@ -2,14 +2,33 @@
 session_start();
 require_once 'conexao.php';
 
+$mensagem = "";
 $erros = [];
 
 function limparTexto($str) {
-    return trim(filter_var($str, FILTER_SANITIZE_STRING));
+    return trim(strip_tags($str));
+}
+
+// Função para validar CPF com cálculo do dígito verificador
+function validarCPF($cpf) {
+    $cpf = preg_replace('/[^0-9]/', '', $cpf);
+    if (strlen($cpf) != 11 || preg_match('/(\d)\1{10}/', $cpf)) return false;
+
+    for ($t = 9; $t < 11; $t++) {
+        $d = 0;
+        for ($c = 0; $c < $t; $c++) {
+            $d += $cpf[$c] * (($t + 1) - $c);
+        }
+        $d = ((10 * $d) % 11) % 10;
+        if ($cpf[$c] != $d) return false;
+    }
+    return true;
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Sanitização e validação básica
+    // Guarda dados antigos
+    $_SESSION['old'] = $_POST;
+
     $nome         = limparTexto($_POST['nome'] ?? '');
     $nomeMaterno  = limparTexto($_POST['nomeMaterno'] ?? '');
     $cpf          = preg_replace('/[^0-9]/', '', $_POST['cpf'] ?? '');
@@ -22,11 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $cidade       = limparTexto($_POST['cidade'] ?? '');
     $login        = limparTexto($_POST['login'] ?? '');
     $senha        = $_POST['senha'] ?? '';
+    $confirmarSenha = $_POST['confirmarSenha'] ?? '';
 
     // Validações
     if (strlen($nome) < 3) $erros[] = "Nome deve ter pelo menos 3 caracteres.";
     if (empty($nomeMaterno)) $erros[] = "Nome materno é obrigatório.";
-    if (strlen($cpf) != 11) $erros[] = "CPF deve conter 11 dígitos numéricos.";
+    if (!validarCPF($cpf)) $erros[] = "CPF inválido.";
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $erros[] = "E-mail inválido.";
     if (empty($dataNasc) || strtotime($dataNasc) >= time()) $erros[] = "Data de nascimento inválida.";
     if (!empty($telefone) && !is_numeric($telefone)) $erros[] = "Telefone deve conter apenas números.";
@@ -36,11 +56,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (empty($cidade)) $erros[] = "Cidade é obrigatória.";
     if (strlen($login) < 5) $erros[] = "Login deve ter pelo menos 5 caracteres.";
     if (strlen($senha) < 6) $erros[] = "Senha deve ter pelo menos 6 caracteres.";
+    if ($senha !== $confirmarSenha) $erros[] = "As senhas não coincidem.";
 
     if (!empty($erros)) {
+            $mensagem .= '<div class="alert alert-danger"><ul>';
         foreach ($erros as $erro) {
-            echo "<p style='color: red;'>$erro</p>";
+        $mensagem .= "<li>$erro</li>";
         }
+        $mensagem .= '</ul></div>';
+
+        $_SESSION['mensagem'] = $mensagem;
+        header("Location: cadastro.php");
         exit;
     }
 
@@ -68,11 +94,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             ':senha'        => password_hash($senha, PASSWORD_DEFAULT)
         ]);
 
-        echo "<p style='color: green;'>Usuário cadastrado com sucesso!</p>";
+        $mensagem = '<div class="alert alert-success">Usuário cadastrado com sucesso! Redirecionando...</div>';
+
+        unset($_SESSION['old']); // limpa os dados
+        header("refresh:3;url=login.php");
     } catch (PDOException $e) {
-        echo "<p style='color: red;'>Erro ao salvar no banco de dados: " . $e->getMessage() . "</p>";
+        $mensagem = '<div class="alert alert-danger">Erro ao salvar no banco de dados: ' . $e->getMessage() . '</div>';
+
+        $_SESSION['mensagem'] = $mensagem;
+        header("Location: cadastro.php");
+        exit;
     }
 } else {
-    echo "<p>Requisição inválida.</p>";
+    $mensagem = "<p>Requisição inválida.</p>";
+    $_SESSION['mensagem'] = $mensagem;
+    header("Location: cadastro.php");
+    exit;
 }
-?>

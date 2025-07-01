@@ -1,0 +1,282 @@
+/* IMPORTS*/ 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); /*Importa a fonte Monteserrat*/
+
+/* Estilo geral */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #000000;
+}
+
+header {
+    background-color: #0f222d;
+    color: white;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+/* Navbar */
+.bg-body-color{ /*Class do Navbar*/
+    background-color: #0f222d !important;
+    position: relative;
+    top: 0;
+    width: 100%; 
+}
+
+.navbar-brand {
+    color: #f29736; /*Laranja f55139 */
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.nav-item {
+    font-family: "Montserrat", sans-serif;
+    font-style: italic;
+}
+
+.dropdown-menu {
+    min-width: auto; /* Define a largura mínima */
+    
+}
+
+#logoutBtn{
+    font-family: "Montserrat", sans-serif !important;
+    color: #DEE2E6 !important;
+    font-size: 16px !important;
+    text-align: left !important;
+    margin: auto;
+}
+
+/* imagem de usuário */
+.img-user-circle {
+    width: 30px; /* Tamanho da imagem */
+    height: 30px; /* Tamanho da imagem */
+    border-radius: 40%; /* Torna a imagem redonda */
+    object-fit: cover; 
+    border: 2px solid #fff; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra */
+}
+
+/* Botão adicionar alinhado à direita */
+a.adicionar {
+    display: inline-block;
+    margin-left: 1003px;
+    margin-bottom:15px;
+    background-color: #198754;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+a.adicionar:hover {
+    background-color: #136941;
+}
+
+a.voltar {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #6c757d;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+a.voltar:hover {
+    background-color: #535a5f;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    font-size: 15px;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #f29736;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ff980038;
+}
+
+/* Ações */
+td a {
+    padding: 5px 5px;
+    border-radius: 6px;
+    margin: 0 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+td a:first-child {
+    background-color: #ffc107;
+}
+
+td a:first-child:hover {
+    background-color: #e0a800;
+}
+
+td a:last-child {
+    background-color: #dc3545;
+}
+
+td a:last-child:hover {
+    background-color: #bb2d3b;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    tr {
+        margin-bottom: 15px;
+    }
+
+    th {
+        background-color: #0d6efd;
+        color: white;
+        padding: 10px;
+    }
+
+    td {
+        padding: 10px;
+        text-align: right;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 50%;
+        text-align: left;
+        font-weight: bold;
+        color: #333;
+    }
+}
+
+
+
+
+/*Modal Alteração de Senha*/
+#alterarSenhaModal .modal-dialog {
+    max-width: 400px; /* Define uma largura máxima */
+    margin: auto; /* Centraliza o modal */
+}
+#alterarSenhaModal .modal-content {
+    background-color: #f8f9fa; /* Cor de fundo clara */
+    border-radius: 10px; /* Borda arredondada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  }
+  
+  #alterarSenhaModal .modal-header {
+    background-color: #0f222d; /* Cor de fundo escura */
+    color: #fff; /* Texto branco */
+    border-bottom: none; /* Remove borda inferior */
+    border-radius: 10px 10px 0 0; /* Canto superior arredondado */
+  }
+  
+  #alterarSenhaModal .modal-title {
+    font-size: 1.5rem; /* Tamanho da fonte maior */
+  }
+  
+  #alterarSenhaModal .btn-close {
+    filter: brightness(0) invert(1); /* Torna o botão de fechar visível em fundos escuros */
+  }
+  
+  #alterarSenhaModal .modal-body {
+    padding: 1.5rem; /* Aumenta o espaço interno */
+  }
+  
+  #alterarSenhaModal .form-label {
+    font-weight: bold; /* Texto em negrito */
+    color: #495057; /* Cinza escuro */
+  }
+  
+  #alterarSenhaModal .form-control {
+    border: 1px solid #ced4da; /* Borda cinza */
+    border-radius: 5px; /* Borda arredondada */
+  }
+  
+  #alterarSenhaModal .modal-footer {
+    background-color: #f1f1f1; /* Fundo claro */
+    border-top: none; /* Remove borda superior */
+    border-radius: 0 0 10px 10px; /* Canto inferior arredondado */
+  }
+  
+  /* Botões do modal */
+#alterarSenhaModal .btn-primary {
+    background-color: #e38929;
+    border: none;
+  }
+  
+  #alterarSenhaModal .btn-primary:hover {
+    background-color: #f29736; 
+  }
+  
+  #alterarSenhaModal .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+  
+  #alterarSenhaModal .btn-secondary:hover {
+    background-color: #858585; 
+  }
+  
+  /* Adiciona transição suave */
+  #alterarSenhaModal .form-control,
+  #alterarSenhaModal .btn {
+    transition: all 0.3s ease;
+  }
+  
+  /* Efeito de foco nos campos */
+  #alterarSenhaModal .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }

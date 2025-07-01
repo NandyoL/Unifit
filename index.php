@@ -1,3 +1,17 @@
+<?php
+session_start();
+require_once 'conexao.php';
+
+// Verifica se o usuário está logado
+$usuarioLogado = $_SESSION['usuario'] ?? null;
+$nomeUsuario = '';
+
+if ($usuarioLogado) {
+    $primeiroNome = explode(' ', $usuarioLogado['nome'])[0];
+    $nomeUsuario = ucfirst(strtolower($primeiroNome));
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -14,7 +28,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-color" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">UniFit</a>
+            <a class="navbar-brand" href="index.php">UniFit</a>
     
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,8 +36,9 @@
     
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                   
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#carousel">Home</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Login</a>
@@ -39,30 +54,47 @@
                     </li>
                 </ul>
             </div>
+
+<!-- Dropdown do usuário -->
+<?php if ($usuarioLogado): ?>
+<div id="userDropdown" class="dropdown ms-auto">
+    <a 
+        class="btn btn-secondary dropdown-toggle d-flex align-items-center" 
+        href="#" 
+        role="button" 
+        id="dropdownUser" 
+        data-bs-toggle="dropdown" 
+        aria-expanded="false"
+    >
+        <img 
+            src="Imagens/userIcon.webp" 
+            alt="Usuário" 
+            class="rounded-circle me-2" 
+            style="width: 30px; height: 30px;"
+        >
+        <span id="usuarioLogado"><?= htmlspecialchars($nomeUsuario) ?></span>
+    </a>
     
-            <!-- Dropdown do usuário -->
-            <div id="userDropdown" class="dropdown ms-auto" style="display: none;">
-                <a 
-                    class="btn btn-secondary dropdown-toggle d-flex align-items-center" 
-                    href="#" 
-                    role="button" 
-                    id="dropdownUser" 
-                    data-bs-toggle="dropdown" 
-                    aria-expanded="false"
-                >
-                    <img 
-                        src="Imagens/userIcon.webp" 
-                        alt="Usuário" 
-                        class="rounded-circle me-2" 
-                        style="width: 30px; height: 30px;"
-                    >
-                    <span id="usuarioLogado"></span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
-                    <li><button class="dropdown-item" id="alterarSenha" data-bs-toggle="modal" data-bs-target="#alterarSenhaModal">Alterar Senha</button></li> 
-                    <li><button class="dropdown-item" id="logoutBtn">Logout</button></li>
-                </ul>
-            </div>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
+        <li>
+        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#alterarSenhaModal">
+            Alterar Senha
+        </button>
+        </li> 
+        <?php if ($_SESSION['usuario']['perfil'] === 'ADMIN'): ?>
+          <li>
+          <a class="dropdown-item" href="dashboard.php">Dashboard</a>
+          </li>
+        <?php endif; ?>
+        <li>
+          <a class="dropdown-item" href="logout.php">Logout</a>
+        </li>
+    </ul>
+    
+</div>
+<?php endif; ?>
+
+            
         </div>
     </nav> 
 </header>
@@ -76,25 +108,23 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form id="alterarSenhaForm">
-                <div class="mb-3">
-                  <label for="senhaAtual" class="form-label">Senha Atual</label>
-                  <input type="password" class="form-control" id="senhaAtual" maxlength="8" required>
-                </div>
+              <form action="alterarsenha.php" id="alterarSenhaForm" method="POST">
                 <div class="mb-3">
                   <label for="novaSenha" class="form-label">Nova Senha</label>
-                  <input type="password" class="form-control" id="novaSenha" maxlength="8" required>
+                  <input type="password" class="form-control" name="nova_senha" id="nova_senha" maxlength="8" required>
                 </div>
                 <div class="mb-3">
                   <label for="confirmarSenha" class="form-label">Confirmar Nova Senha</label>
-                  <input type="password" class="form-control" id="confirmarSenha" maxlength="8" required>
+                  <input type="password" class="form-control" name="confirma_senha" id="confirma_senha" maxlength="8" required>
                 </div>
+              <?php if (!empty($mensagem)) echo $mensagem; ?>            
+              <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="submit" class="btn btn-primary" id="salvarSenhaBtn">Salvar</button>
+            </div>
               </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-primary" id="salvarSenhaBtn">Salvar</button>
-            </div>
+
           </div>
         </div>
     </div>

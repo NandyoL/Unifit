@@ -1,3 +1,17 @@
+<?php
+session_start();
+require_once 'conexao.php';
+
+// Verifica se o usuário está logado
+$usuarioLogado = $_SESSION['usuario'] ?? null;
+$nomeUsuario = '';
+
+if ($usuarioLogado) {
+    $primeiroNome = explode(' ', $usuarioLogado['nome'])[0];
+    $nomeUsuario = ucfirst(strtolower($primeiroNome));
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -40,33 +54,47 @@
                         </li>
                     </ul>
                 </div>
-        
-                <!-- Dropdown do usuário -->
-                <div id="userDropdown" class="dropdown ms-auto" style="display: none;">
-                    <a 
-                        class="btn btn-secondary dropdown-toggle d-flex align-items-center" 
-                        href="#" 
-                        role="button" 
-                        id="dropdownUser" 
-                        data-bs-toggle="dropdown" 
-                        aria-expanded="false"
+
+            <!-- Dropdown do usuário -->
+            <?php if ($usuarioLogado): ?>
+            <div id="userDropdown" class="dropdown ms-auto">
+                <a 
+                    class="btn btn-secondary dropdown-toggle d-flex align-items-center" 
+                    href="#" 
+                    role="button" 
+                    id="dropdownUser" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false"
+                >
+                    <img 
+                        src="Imagens/userIcon.webp" 
+                        alt="Usuário" 
+                        class="rounded-circle me-2" 
+                        style="width: 30px; height: 30px;"
                     >
-                        <img 
-                            src="Imagens/userIcon.webp" 
-                            alt="Usuário" 
-                            class="rounded-circle me-2" 
-                            style="width: 30px; height: 30px;"
-                        >
-                        <span id="usuarioLogado"></span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
-                        <li><button class="dropdown-item" id="alterarSenha" data-bs-toggle="modal" data-bs-target="#alterarSenhaModal">Alterar Senha</button></li> 
-                        <li><button class="dropdown-item" id="logoutBtn">Logout</button></li>
-                    </ul>
-                </div>
+                    <span id="usuarioLogado"><?= htmlspecialchars($nomeUsuario) ?></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownUser">
+                    <li>
+                        <button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#alterarSenhaModal">
+                            Alterar Senha
+                        </button>
+                    </li>
+                            <?php if ($_SESSION['usuario']['perfil'] === 'ADMIN'): ?>
+          <li>
+          <a class="dropdown-item" href="dashboard.php">Dashboard</a>
+          </li>
+        <?php endif; ?> 
+                    <li>
+                        <a class="dropdown-item" href="logout.php">Logout</a>
+                    </li>
+                </ul>
             </div>
-        </nav> 
-    </header>
+            <?php endif; ?>
+            </div>
+        </div>
+    </nav> 
+</header>
 
 <!--Modal de Alteração de Senha-->
 <section id="modalAlterarSenha">

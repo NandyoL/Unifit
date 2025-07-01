@@ -11,7 +11,7 @@ function showSlide() {
   index = (index + 1) % slides.length; // Loop
 }
 
-setInterval(showSlide, 3000); // Muda o slide a cada 3 segundos
+setInterval(showSlide, 2500); // Muda o slide a cada 3 segundos
 
 const cards = document.querySelectorAll('.card');
 
